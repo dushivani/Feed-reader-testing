@@ -85,7 +85,8 @@ $(function() {
 			});
 		 });
 		 it('if entries are more than 0', function () {
-			expect($('.entry .feed')).toBeDefined();
+			var l=$('.feed .entry').length;
+			expect(l).toBeGreaterThan(0);
 		 });
     });
 
@@ -101,11 +102,10 @@ $(function() {
 		 beforeEach(function (done) {
 			$('.feed').empty();
 			loadFeed(0, function () {
-				oldEntries=$('.feed').find(allFeeds.url);
-				done();
+				oldEntries=$('.feed').html();
 			});
 			loadFeed(1, function () {
-				newEntries=$('.feed').find(allFeeds.url);
+				newEntries=$('.feed').html();
 				done();
 			});
 		 });
