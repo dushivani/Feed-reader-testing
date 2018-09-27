@@ -80,9 +80,9 @@ $(function() {
          * a single .entry element within the .feed container.
          */
 		 beforeEach(function(done) {
-			loadFeed(0, function() {
-				done();
-			});
+			loadFeed(0, done);
+				
+			
 		 });
 		 it('if entries are more than 0', function () {
 			var l=$('.feed .entry').length;
@@ -103,7 +103,7 @@ $(function() {
 			$('.feed').empty();
 			loadFeed(0, function () {
 				oldEntries=$('.feed').html();
-			});
+			
 			loadFeed(1, function () {
 				newEntries=$('.feed').html();
 				done();
